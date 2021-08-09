@@ -1,4 +1,4 @@
 # FirstPython
 
 Lessons in Django
-Models, views and templates, SQLLite
+Models, views and templates, CRUD with SQLLite

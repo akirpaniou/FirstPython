@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lessforms</title>
+</head>
+<body>
+
+<form method="POST" #novalidate>
+    {% csrf_token %}
+<table>
+{{form}}
+</table>
+    <input type="submit" value="Send">
+    <br>
+<table>
+    {{form1}}
+</table>
+    <div>
+        {{form2}}
+    </div>
+    <div>
+        {{form3}}
+    </div>
+    <div>
+        {{form4}}
+    </div>
+</form>
+
+</body>
+</html>

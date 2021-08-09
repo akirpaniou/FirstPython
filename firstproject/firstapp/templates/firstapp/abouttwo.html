@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hello Django</title>
+</head>
+<body>
+    <ul>
+    {% for lan in langs %}
+    <li>{{ lan }}</li>
+    {% empty %}
+    <li>Langs array is empty</li>
+    {% endfor %}
+</ul>
+{% with name="Tom" age=29 %}
+    <div>
+        <p>Name: {{ name }}</p>
+        <p>Age: {{ age }}</p>
+    </div>
+{% endwith %}
+</body>
+</html>

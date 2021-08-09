@@ -1,0 +1,11 @@
+{% extends "firstapp/base.html" %}
+{% block title %}Indextwo{% endblock title %}
+{% block header %}Main{% endblock header %}
+{%block content%}
+{% if n > 0 %}
+    <p>Positive number</p>
+{%else%}
+    <p>Number is negative or equal to zero</p>
+{% endif %}
+{%endblock content%}
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <title>{% block title %}
+        Index
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <h1>
+    </h1>
+    <h2> {{header}} </h2>
+    <p>Name: {{user.name}} Age: {{user.age}}</p>
+    <p>Address: st.{{address.0}}, h.{{address.1}}, num.{{address.2}}</p>
+    <p>Langs: {{langs.0}}, {{langs.1}}</p>
+
+    <h1>Images</h1>
+    <img src="{%  static "Images/python.png" %}" alt="Stones along the river">
+    {% block content%}
+    <p>{% now "Y" %} {% now "y"%}</p>
+    <p>{% now "F j Y" %}</p>
+    <p>{% now "N, j, Y" %}</p>
+    <p>{% now "N j, Y, P" %}</p>
+        {% endblock %}
+<ul>
+        {% for lan in langs %}
+        <li>{{ lan }}</li>
+        {% endfor %}
+    </ul>
+<table>
+    {{form}}
+</table>
+<form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Enter your name</label><br>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Enter your age</label><br>
+            <input type="number" name="age" />
+        </p>
+        <input type="submit" value="Save" >
+    </form>
+    {% if people.count > 0 %}
+    <h2>Users</h2>
+    <table>
+        <thead><th>Id</th><th>Name</th><th>Age</th><th></th></thead>
+        {% for person in people %}
+        <tr>
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+            <td><a href="edit/{{person.id}}">Edit</a> | <a href="delete/{{person.id}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

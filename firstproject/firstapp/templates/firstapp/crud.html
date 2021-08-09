@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Models in Django</title>
+</head>
+<body class="container">
+    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Enter your name</label><br>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Enter your age</label><br>
+            <input type="number" name="age" />
+        </p>
+        <input type="submit" value="Save" >
+    </form>
+    {% if people.count > 0 %}
+    <h2>Users</h2>
+    <table>
+        <tr><th>Id</th><th>Name</th><th>Age</th></tr>
+        {% for person in people %}
+        <tr><td>{{ person.id }}</td><td>{{ person.name }}</td><td>{{ person.age }}</td></tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
